@@ -1,0 +1,14 @@
+{
+  "identity_base_url": {
+    "display_name": "Base URL for Identity",
+    "description": "Base URL to Identity used throughout the app for API calls",
+    "type": "text",
+    "required": true
+  },
+  "identity_api_token": {
+    "display_name": "API token for Identity",
+    "description": "API token necessary for calls to Identity API",
+    "type": "text",
+    "required": true
+  }
+}
