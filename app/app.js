@@ -1,11 +1,9 @@
-var CONTACT_INFO_MAPPING = {
-  first_name: 'First name',
-  email: 'Email',
-  phone_number: 'Mobile'
-};
 var DONATIONS_INFO_MAPPING = {
   has_donated: 'Is donor',
   donation_count: 'Donations so far'
+};
+var ADDRESS_INFO_MAPPING = {
+  postcode: 'Postal code'
 };
 
 function displayErr(message) {
@@ -31,6 +29,7 @@ function fetchContactDetails(email) {
       .then(function(data) {
         resolve(data.response);
       }, function(err) {
+        displayErr('Error fetching contact from Identity');
         console.log(err);
       });
   });
@@ -42,7 +41,7 @@ function getTicketContact() {
     .then(function(data) {
       resolve(data);
     }, function() {
-      displayErr('Error fetching contact from CRM database');
+      displayErr('Error fetching contact from FreshDesk');
     });
   });
 }
@@ -91,9 +90,16 @@ $(document).ready( function() {
     },
 
     function(crmContactInformation) {
-      for (var contactKey in CONTACT_INFO_MAPPING) {
-        displayInfo(CONTACT_INFO_MAPPING[contactKey], crmContactInformation[contactKey]);
+      const created_at = moment(crmContactInformation.created_at)
+      const now = moment();
+      const member_since = moment.duration(now.diff(created_at));
+      displayInfo('Member since', `${member_since.years()} year(s) ${member_since.months()} month(s)`);
+
+      jQuery('#contact-info').append('<div class="fw-divider"></div>');
+      for (var addressKey in ADDRESS_INFO_MAPPING) {
+        displayInfo(ADDRESS_INFO_MAPPING[addressKey], crmContactInformation.address[addressKey]);
       }
+
       jQuery('#contact-info').append('<div class="fw-divider"></div>');
       for (var donationKey in DONATIONS_INFO_MAPPING) {
         displayInfo(DONATIONS_INFO_MAPPING[donationKey], crmContactInformation.donations[donationKey]);
