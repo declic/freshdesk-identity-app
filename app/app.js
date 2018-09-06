@@ -163,7 +163,7 @@ $(document).ready( function() {
     },
 
     function(crmContactInformation, callback) {
-      const created_at = moment(crmContactInformation.created_at)
+      const created_at = moment(crmContactInformation.created_at);
       const now = moment();
       const member_since = moment.duration(now.diff(created_at));
       displayInfo('Member since', `${member_since.years()} year(s) ${member_since.months()} month(s)`);
