@@ -1,14 +1,27 @@
 <html>
   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://static.freshdev.io/fdk/2.0/assets/fresh_client.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/async/2.6.0/async.min.js"></script>
     <script src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="https://static.freshdev.io/fdk/2.0/assets/freshdesk.css">
   </head>
   <body>
     <div class="fw-widget-wrapper">
       <div id="contact-info"></div>
+      <div id="unsubscribe">
+        <div class="fw-content-list">
+          <div class="unsub-email-container">
+              <button class ="btn btn-primary" id="unsub-email">Unsubscribe from email</button>
+          </div>
+          &nbsp;
+          <div class="unsub-perma-container">
+              <button class ="btn btn-danger" id="unsub-perma">Unsubscribe permanently</button>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

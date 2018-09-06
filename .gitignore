@@ -2,4 +2,5 @@ linux_signing_key.pub
 config/iparam_test_data.json
 coverage
 .report.json
+node_modules
 dist
