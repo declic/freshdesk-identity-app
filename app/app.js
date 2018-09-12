@@ -34,7 +34,6 @@ function unsubscribeContact(email) {
         if (err.status >= 400 && err.status < 500) {
           displayErr(err.response.error);
         } else {
-          console.log(err);
           displayErr('Couldn\'t unsubscribe contact from email.');
         }
       });
@@ -59,7 +58,6 @@ function unsubscribePermanently(email) {
         if (err.status >= 400 && err.status < 500) {
           displayErr(err.response.error);
         } else {
-          console.log(err);
           displayErr('Couldn\'t unsubscribe contact from email.');
         }
       });
@@ -78,7 +76,6 @@ function fetchContactSubscriptions(email) {
         resolve(data.response);
       }, function(err) {
         displayErr('Error retrieving subscriptions from Identity');
-        console.log(err);
       });
   });
 }
@@ -103,7 +100,6 @@ function fetchContactDetails(email) {
         resolve(data.response);
       }, function(err) {
         displayErr('Error fetching contact from Identity');
-        console.log(err);
       });
   });
 }
