@@ -9,6 +9,7 @@
     "display_name": "API token for Identity",
     "description": "API token necessary for calls to Identity API",
     "type": "text",
-    "required": true
+    "required": true,
+    "secure": true
   }
 }
