@@ -162,7 +162,7 @@ $(document).ready( function() {
       const created_at = moment(crmContactInformation.created_at);
       const now = moment();
       const member_since = moment.duration(now.diff(created_at));
-      displayInfo('Member since', `${member_since.years()} year(s) ${member_since.months()} month(s)`);
+      displayInfo('Member since', `${member_since.years()} year(s) ${member_since.months()} month(s) ${member_since.days()} day(s)`);
 
       jQuery('#contact-info').append('<div class="fw-divider"></div>');
       for (var addressKey in ADDRESS_INFO_MAPPING) {
