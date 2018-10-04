@@ -221,6 +221,7 @@ $(document).ready( function() {
           .then(function(succ) {
             displaySuc('Permanently unsubscribed contact.');
             jQuery("#unsub-perma").attr('disabled', true);
+            jQuery("#unsub-email").attr('disabled', true);
           });
         });
       }
