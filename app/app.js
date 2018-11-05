@@ -197,10 +197,10 @@ $(document).ready( function() {
         jQuery('#contact-info')
           .append('<div class="fw-content-list"><div class="muted">Contact has no email subscription.</div></div>');
       } else if(emailSub.unsubscribed_at) {
-        jQuery("#unsub-email").show();
+        $("#unsub-email").css("display", "inline-block");
         jQuery("#unsub-email").attr('disabled', true);
       } else {
-        jQuery("#unsub-email").show();
+        $("#unsub-email").css("display", "inline-block");
         jQuery("#unsub-email").click(function() {
           unsubscribeContact(crmContactInformation.email)
           .then(function(succ) {
@@ -212,10 +212,10 @@ $(document).ready( function() {
 
       const permaSub = subscriptions.find((sub) => sub.permanent === true);
       if(permaSub) {
-        jQuery("#unsub-perma").show();
+        $("#unsub-perma").css("display", "inline-block");
         jQuery("#unsub-perma").attr('disabled', true);
       } else {
-        jQuery("#unsub-perma").show();
+        $("#unsub-perma").css("display", "inline-block");
         jQuery("#unsub-perma").click(function() {
           unsubscribePermanently(crmContactInformation.email)
           .then(function(succ) {
