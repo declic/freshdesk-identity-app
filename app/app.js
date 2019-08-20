@@ -1,6 +1,9 @@
 var DONATIONS_INFO_MAPPING = {
   has_donated: 'Is donor',
-  donation_count: 'Donations so far'
+  donation_count: 'Donations so far',
+  last_donated: 'Last donated',
+  highest_donation: 'Highest donation',
+  average_donation: 'Average donation'
 };
 var ADDRESS_INFO_MAPPING = {
   postcode: 'Postal code'
