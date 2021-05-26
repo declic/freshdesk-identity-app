@@ -12,7 +12,8 @@
   },
   "whitelisted-domains": [
     "https://identity-staging.declic.ro",
-    "https://identity.declic.ro"
+    "https://identity.declic.ro",
+    "<%= iparam.identity_base_url %>"
   ]
 }
 
