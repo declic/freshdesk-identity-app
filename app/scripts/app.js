@@ -31,7 +31,7 @@ function unsubscribeContact(email) {
       'Authorization': BASIC_AUTH,
       "Content-Type":"application/json"
     };
-    const uri = '<%= iparam.identity_base_url %>' + '/api/subscriptions/unsubscribe';
+    const uri = 'https://' + '<%= iparam.identity_base_url %>' + '/api/subscriptions/unsubscribe';
     client.request.post(uri, {
       uri,
       headers,
@@ -59,7 +59,7 @@ function unsubscribePermanently(email) {
       'Authorization': BASIC_AUTH,
       "Content-Type":"application/json"
     };
-    const uri = '<%= iparam.identity_base_url %>' + '/api/subscriptions/unsubscribe_permanently';
+    const uri = 'https://' + '<%= iparam.identity_base_url %>' + '/api/subscriptions/unsubscribe_permanently';
     client.request.post(uri, {
       uri,
       headers,
@@ -80,7 +80,7 @@ function unsubscribePermanently(email) {
 
 function fetchContactSubscriptions(email) {
   return new Promise(function(resolve) {
-    const uri = '<%= iparam.identity_base_url %>' + '/api/subscriptions?' +
+    const uri = 'https://' + '<%= iparam.identity_base_url %>' + '/api/subscriptions?' +
                 'email=' + email;
     const headers = {
       'Authorization': BASIC_AUTH,
@@ -108,7 +108,7 @@ function fetchContactDetails(email) {
       'Authorization': BASIC_AUTH,
       "Content-Type":"application/json"
     };
-    const uri = '<%= iparam.identity_base_url %>' + '/api/member/details';
+    const uri = 'https://' + '<%= iparam.identity_base_url %>' + '/api/member/details';
     client.request.post(uri, {
       uri,
       headers,
@@ -118,8 +118,8 @@ function fetchContactDetails(email) {
       .then(function(data) {
         resolve(data.response);
       }, function() {
-        console.error(headers, body);
-        displayErr('Error fetching contact from Identity');
+        console.error(uri,headers,body);
+        displayErr('FD-Identity connection issue');
       });
   });
 }
@@ -240,7 +240,7 @@ $(document).ready( function() {
             displaySuc('Successfully unsubscribed contact from email.');
             jQuery("#unsub-email").attr('disabled', true);
           }).catch(function () {
-            console.log("Cannot unscbscribe from email from CRM for:" + crmContactInformation.email);
+            console.log("Cannot unsubscribe from email from CRM for:" + crmContactInformation.email);
             displayErr("Cannot unsubscribe from email in Identity:" + contactInformation.contact.email);
           });
         });

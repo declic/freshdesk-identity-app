@@ -1,7 +1,7 @@
 {
     "identity_base_url": {
-      "display_name": "Base URL for Identity",
-      "description": "Base URL to Identity used throughout the app for API calls",
+      "display_name": "Identity domain",
+      "description": "Base domain to Identity used throughout the app for API calls (e.g. identity.example.org)",
       "type": "text",
       "required": true
     },

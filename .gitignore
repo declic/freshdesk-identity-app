@@ -4,3 +4,4 @@ coverage
 .report.json
 node_modules
 dist
+.fdk/*
