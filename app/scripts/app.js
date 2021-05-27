@@ -189,6 +189,7 @@ $(document).ready( function() {
     },
 
     function(crmContactInformation, callback) {
+      console.log(crmContactInformation);
       const created_at = moment(crmContactInformation.created_at);
       const now = moment();
       const member_since = moment.duration(now.diff(created_at));
@@ -259,8 +260,8 @@ $(document).ready( function() {
             jQuery("#unsub-perma").attr('disabled', true);
             jQuery("#unsub-email").attr('disabled', true);
           }).catch(function () {
-            console.log("Cannot permanently unscbscribe from CRM for:" + crmContactInformation.email);
-            displayErr("Cannot permanently unscbscribe from Identity:" + contactInformation.contact.email);
+            console.log("Cannot permanently unsubscribe from CRM for:" + crmContactInformation.email);
+            displayErr("Cannot permanently unsubscribe from Identity:" + contactInformation.contact.email);
           });
         });
       }
